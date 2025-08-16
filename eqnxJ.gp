@@ -23,10 +23,11 @@ tp1=T1*(m-1)+n;for(r=1,N2,c[r+tp,tp1] = t1[r])));
 c[2*S+N*T+1,1]=1;
 c1=matker(c,1);
 U=matsize(c1)[2];
-if(U!=0,out=vector(U);tp2=concat("P://fxJ",N);\
+if(U!=0,out=vector(U);tp2=concat("C://fxJ",N);\
  for(n=1,U,out[n]=concat(concat(tp2,n),".c"));\
 for(i=1,U,nw = fileopen(out[i], "w");s1=0;\
  for(m=1,S1,for(n=1,T1,s1=s1+c1[T1*(m-1)+n,i]*x^(m-1)*j^(n-1)));\
   filewrite(nw,s1); fileclose(nw)));
 return(U);
+
 }
