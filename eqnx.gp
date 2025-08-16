@@ -24,10 +24,11 @@ rk=matrank(c);
 c=c[1..M-10,];
 c1=matker(c);
 U=matsize(c1)[2];
-if(U!=0, out=vector(U);tp2=concat("P://fxjj",N);\
+if(U!=0, out=vector(U);tp2=concat("C://fxjj",N);\
  for(n=1,U,out[n]=concat(concat(tp2,n),".c"));\
 for(i=1,U,nw = fileopen(out[i], "w");\
 s1=0; for(m=1,S1,for(n=1,T1,s1=s1+c1[T1*(m-1)+n,i]*x^(m-1)*j^(n-1)));\
   filewrite(nw,s1); fileclose(nw)));
 return(U);
 }
+
