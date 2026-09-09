@@ -112,3 +112,9 @@ default(realprecision, 80);
 E = ellinit(concat(N,"a1"));
 S = run_fxj_poles(N, E, 1e-12);
 print_pole_data(S);
+
+
+Certify F_{389}(x,j):
+default(parisize,"7000G");        
+read("P:/certify_fxj389.gp");
+R = certify_F389_fxj("P:/fxj389.gp");
