@@ -71,3 +71,44 @@ The following command computes the two polynomials representing x where x = P1/Q
 gp > Yang(e,46,u,X,Y,6,7,2,x,y,4,4,4,3)
 The following command computes the two polynomials representing y where y = P2/Q2:
 gp > Yang(e,46,v,X,Y,6,7,3,x,y,4,5,4,4)
+
+Usage examples for branch-value calculation:
+N=84;
+default(parisize,"100G");
+\p 200
+read("P:\\fibers.gp");
+read("P:\\branch_points_nofactor.gp");
+read(concat(concat("P:\\X0(",N),").c"));
+E = ellinit(concat(N,"a1"));
+BR = run_fxj_fxJ_fyj_fyJ_branch(N, E);
+print_branch_report(BR);
+
+Here the file X0(N).c is contained in the file DataOfModularPolynomials.zip for N from 11 to 91(Notice that not all of these N).
+
+Usage examples for fibre calculation
+N=52;
+read(concat(concat("P:\\X0(",N),").c"));
+read("P:\\fibers.gp");
+default(realprecision, 100);
+E = ellinit(concat(N,"a1"));
+P1 = [2, 0]; 
+R = run_fxj_fxJ_fyj_fiber(N, E, P1);
+print_fiber_with_cusps(R);
+
+Usage examples for cusp value calculation:
+N=38;
+read(concat(concat("P:\\X0(",N),").c"));
+read("P:\\cusps.gp");
+default(realprecision, 100);
+E = ellinit(concat(N,"a1"));
+ZR = run_fxj_fyj_cusp_values(N, E);
+print_exact_cusp_values(ZR);
+
+Usage examples for poles calculation:
+N=38;
+read(concat(concat("P:\\X0(",N),").c"));
+read("P:\\poles.gp");
+default(realprecision, 80);
+E = ellinit(concat(N,"a1"));
+S = run_fxj_poles(N, E, 1e-12);
+print_pole_data(S);
